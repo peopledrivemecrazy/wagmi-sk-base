@@ -9,7 +9,8 @@
 		getNetwork,
 		getProvider,
 		InjectedConnector,
-		watchAccount
+		watchAccount,
+		watchNetwork
 	} from '@wagmi/core';
 	import { publicProvider } from '@wagmi/core/providers/public';
 	import { WalletConnectConnector } from '@wagmi/core/connectors/walletConnect';
@@ -65,7 +66,9 @@
 		watchAccount((account) => {
 			$currentAccount = account;
 		});
-		$curretChain = getNetwork();
+		watchNetwork((network) => {
+			$curretChain = network;
+		});
 	}
 </script>
 
