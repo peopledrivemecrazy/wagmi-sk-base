@@ -32,14 +32,4 @@ export default defineConfig({
 			]
 		}
 	}
-	// resolve: {
-	// 	alias: {
-	// 		Buffer: 'vite-compatible-readable-buffer'
-	// 		// stream: 'vite-compatible-readable-stream',
-	// 		// process: 'process/browser',
-	// 		// stream: 'stream-browserify',
-	// 		// zlib: 'browserify-zlib',
-	// 		// util: 'util'
-	// 	}
-	// }
 });

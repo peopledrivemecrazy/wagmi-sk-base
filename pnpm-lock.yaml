@@ -10,7 +10,6 @@ specifiers:
   '@typescript-eslint/parser': ^5.45.0
   '@wagmi/core': ^0.9.7
   autoprefixer: ^10.4.7
-  buffer: ^6.0.3
   eslint: ^8.28.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
@@ -27,13 +26,10 @@ specifiers:
   tslib: ^2.4.1
   typescript: ^4.9.3
   vite: ^4.0.0
-  vite-compatible-readable-stream: ^3.6.1
 
 dependencies:
   '@wagmi/core': 0.9.7_6la3wgdurc2byppalgze7lq2hy
-  buffer: 6.0.3
   ethers: 5.7.2
-  vite-compatible-readable-stream: 3.6.1
 
 devDependencies:
   '@esbuild-plugins/node-globals-polyfill': 0.2.3
@@ -5086,15 +5082,6 @@ packages:
     dependencies:
       proxy-compare: 2.4.0
       use-sync-external-store: 1.2.0
-    dev: false
-
-  /vite-compatible-readable-stream/3.6.1:
-    resolution: {integrity: sha512-t20zYkrSf868+j/p31cRIGN28Phrjm3nRSLR2fyc2tiWi4cZGVdv68yNlwnIINTkMTmPoMiSlc0OadaO7DXZaQ==}
-    engines: {node: '>= 6'}
-    dependencies:
-      inherits: 2.0.4
-      string_decoder: 1.3.0
-      util-deprecate: 1.0.2
     dev: false
 
   /vite/4.1.4:

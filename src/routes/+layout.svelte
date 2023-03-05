@@ -6,8 +6,6 @@
 		createClient,
 		createStorage,
 		disconnect,
-		getNetwork,
-		getProvider,
 		InjectedConnector,
 		watchAccount,
 		watchNetwork
@@ -15,14 +13,13 @@
 	import { publicProvider } from '@wagmi/core/providers/public';
 	import { WalletConnectConnector } from '@wagmi/core/connectors/walletConnect';
 	import { browser } from '$app/environment';
-	import { Buffer } from 'buffer';
 	import { currentAccount, curretChain } from '../stores';
 	import { safeStringify } from '../lib/helpers';
 	import { arbitrum } from '@wagmi/core/chains';
 
 	const { chains, provider, webSocketProvider } = configureChains([arbitrum], [publicProvider()]);
 
-	const client = createClient({
+	createClient({
 		autoConnect: true,
 		provider,
 		webSocketProvider,
@@ -32,12 +29,12 @@
 			new WalletConnectConnector({
 				chains,
 				options: {
-					qrcode: true
+					qrcode: true,
+					chainId: arbitrum.id
 				}
 			})
 		]
 	});
-	// $currentAccount = getAccount();
 	async function connectClient() {
 		const result = await connect({
 			connector: window['ethereum']
@@ -48,18 +45,14 @@
 							qrcode: true
 						}
 				  }),
-			chainId: 42161
+			chainId: arbitrum.id
 		});
 		console.log({ result });
-		// $currentAccount = getAccount();
-		// const ensName = await fetchEnsName({ address: result.account });
-		// console.log({ result, ensName });
 	}
 
 	async function disconnectClient() {
 		const result = await disconnect();
 		console.log({ result });
-		// $currentAccount = getAccount();
 	}
 
 	$: {
@@ -71,17 +64,6 @@
 		});
 	}
 </script>
-
-<!-- {#if !$currentAccount?.address}
-	{#if $currentAccount?.isConnecting}
-		<p>Loading...</p>
-	{:else if !$currentAccount?.isConnected}
-		<button on:click={connectClient}> connect </button>
-	{/if}
-{:else}
-	<button on:click={disconnectClient}> disconnect </button>
-	<slot />
-{/if} -->
 
 {#if $currentAccount?.isConnecting}
 	<p>Connecting...</p>
