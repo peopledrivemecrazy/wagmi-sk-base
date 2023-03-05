@@ -6,6 +6,7 @@
 		createClient,
 		createStorage,
 		disconnect,
+		getNetwork,
 		getProvider,
 		InjectedConnector,
 		watchAccount
@@ -14,7 +15,7 @@
 	import { WalletConnectConnector } from '@wagmi/core/connectors/walletConnect';
 	import { browser } from '$app/environment';
 	import { Buffer } from 'buffer';
-	import { currentAccount } from '../stores';
+	import { currentAccount, curretChain } from '../stores';
 	import { safeStringify } from '../lib/helpers';
 	import { arbitrum } from '@wagmi/core/chains';
 
@@ -64,6 +65,7 @@
 		watchAccount((account) => {
 			$currentAccount = account;
 		});
+		$curretChain = getNetwork();
 	}
 </script>
 

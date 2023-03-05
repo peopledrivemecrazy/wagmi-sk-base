@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { currentAccount } from '../stores';
+	import { currentAccount, curretChain } from '../stores';
 </script>
 
 {#if $currentAccount.isConnected}
-	<p>Welcome {$currentAccount.address}</p>
+	<p>Welcome {$currentAccount.address} @ {$curretChain.chain?.name}</p>
 {/if}
